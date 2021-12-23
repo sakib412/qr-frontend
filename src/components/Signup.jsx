@@ -1,16 +1,18 @@
 import React from 'react'
 import { Form, Input, Button, Layout, Breadcrumb, Row, Col, Typography } from 'antd';
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 import './Login.css'
+import axiosInstance from '../axios';
 
 const { Content } = Layout;
 const { Title } = Typography;
 
 function Login() {
     const onFinish = (values) => {
-        axios.post("http://localhost:8000/api/signup/", values).then(res => {
+
+        axiosInstance.post("/signup/", values).then(res => {
             console.log(res.data)
+            window.location.href = "/signin";
         }).catch(e => {
             console.log(e.response.data);
         })

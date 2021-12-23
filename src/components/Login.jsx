@@ -1,15 +1,15 @@
 import { Form, Input, Button, Layout, Breadcrumb, Row, Col, Typography } from 'antd';
 import { Link } from 'react-router-dom'
 import './Login.css'
-import axios from 'axios';
-import { ACCESS_TOKEN, REFRESH_TOKEN } from '../axios';
+import axiosInstance, { ACCESS_TOKEN, REFRESH_TOKEN } from '../axios';
 
 const { Content } = Layout;
 const { Title } = Typography;
 
 function Login() {
     const onFinish = (values) => {
-        axios.post("http://localhost:8000/api/signin/", values)
+
+        axiosInstance.post("/signin/", values)
             .then(res => {
                 console.log(res.data);
                 localStorage.setItem(ACCESS_TOKEN, res.data.access);
