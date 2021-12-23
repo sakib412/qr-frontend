@@ -1,7 +1,7 @@
 import axios from "axios";
 export const ACCESS_TOKEN = "access_token";
 export const REFRESH_TOKEN = "refresh_token";
-const baseURL = `${window.location.protocol}//${window.location.hostname}:8000/api/`;
+const baseURL = `https://shrouded-shelf-89229.herokuapp.com/api/`;
 const axiosInstance = axios.create({
     baseURL: baseURL,
     headers: {
