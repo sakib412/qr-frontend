@@ -15,7 +15,7 @@ function QRScanner() {
             console.log(data);
             const result = { "result": data }
 
-            axiosInstance.patch("http://localhost:8000/api/attendence/update/", result)
+            axiosInstance.patch("/attendence/update/", result)
                 .then(res => {
                     if (res.data.message === 'Success') {
                         Modal.success({
